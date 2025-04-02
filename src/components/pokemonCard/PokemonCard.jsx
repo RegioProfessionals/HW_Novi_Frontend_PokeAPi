@@ -4,12 +4,11 @@ import {useEffect, useState} from "react";
 
 function PokemonCard({pokemonData}) {
     const [pokemon, setPokemon] = useState({});
-    console.log(`Dit is het resultaat van de selectie van 20: ${pokemonData}`);
+        console.log(`Dit is het resultaat van de selectie van 20: `, pokemonData);
 
     async function fetchPokemonData() {
     try {
-        const result = await axios.get('https://pokeapi.co/api/v2/pokemon/JigglyPuff/');
-        // console.log(result.data);
+        const result = await axios.get(pokemonData);
         setPokemon(result.data);
     } catch (e) {
         console.error(e);
